@@ -1,0 +1,33 @@
+{
+  "name": "slot-frontend-engine",
+  "description": "Production-ready Phaser 3 Slot Machine Frontend Engine - Modular Architecture for Casino Platforms",
+  "version": "1.0.0",
+  "type": "module",
+  "license": "MIT",
+  "author": "Extracted and refactored for casino platform integration",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/princeraj1396/slot-frontend-engine.git"
+  },
+  "bugs": {
+    "url": "https://github.com/princeraj1396/slot-frontend-engine/issues"
+  },
+  "homepage": "https://github.com/princeraj1396/slot-frontend-engine#readme",
+  "scripts": {
+    "dev": "vite --config vite/config.dev.mjs",
+    "build": "vite build --config vite/config.prod.mjs",
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/webfontloader": "^1.6.38",
+    "terser": "^5.31.0",
+    "typescript": "^5.4.5",
+    "vite": "^5.3.1"
+  },
+  "dependencies": {
+    "phaser": "^3.87.0",
+    "webfontloader": "^1.6.28"
+  }
+}
