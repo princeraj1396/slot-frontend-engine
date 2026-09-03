@@ -3,11 +3,11 @@
  * These can be overridden at initialization time
  */
 
-export const GAME_WIDTH = 1920;
-export const GAME_HEIGHT = 1080;
+export const GAME_WIDTH = 1080;
+export const GAME_HEIGHT = 1920;
 export const REEL_COUNT = 3;
 export const ROW_COUNT = 3;
-export const SYMBOL_SIZE = 210;
+export const SYMBOL_SIZE = 240;
 
 /**
  * Animation timing constants (milliseconds)

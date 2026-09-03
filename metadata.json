@@ -1,0 +1,8 @@
+{
+  "name": "Royal Fortune 777",
+  "description": "A professional, high-end mobile-first 3x3 slot game titled Royal Fortune 777, featuring progressive jackpot, 5 paylines, textured wood and gold console deck, and responsive controls. Powered by JILLU.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

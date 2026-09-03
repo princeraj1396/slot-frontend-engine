@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="bgGlowMask" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#2d134d" />
+      <stop offset="60%" stop-color="#140b24" />
+      <stop offset="100%" stop-color="#090512" />
+    </radialGradient>
+    <linearGradient id="goldBorderMask" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe277" />
+      <stop offset="35%" stop-color="#d4af37" />
+      <stop offset="70%" stop-color="#8a6316" />
+      <stop offset="100%" stop-color="#ffd700" />
+    </linearGradient>
+    <linearGradient id="goldPlateMask" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fff2a8" />
+      <stop offset="25%" stop-color="#f59e0b" />
+      <stop offset="75%" stop-color="#b45309" />
+      <stop offset="100%" stop-color="#78350f" />
+    </linearGradient>
+    <linearGradient id="sevenGradientMask" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff3366" />
+      <stop offset="50%" stop-color="#e11d48" />
+      <stop offset="100%" stop-color="#9f1239" />
+    </linearGradient>
+  </defs>
+
+  <!-- Full-bleed background for maskable -->
+  <rect width="512" height="512" fill="url(#bgGlowMask)" />
+
+  <!-- All elements constrained to safe zone (within center 80% circle, r=204) -->
+  <g transform="translate(256, 256) scale(0.82) translate(-256, -256)">
+    <!-- Golden Frame Ring -->
+    <rect x="36" y="36" width="440" height="440" rx="80" fill="none" stroke="url(#goldBorderMask)" stroke-width="8" />
+    <circle cx="56" cy="56" r="8" fill="#ffd700" />
+    <circle cx="456" cy="56" r="8" fill="#ffd700" />
+    <circle cx="56" cy="456" r="8" fill="#ffd700" />
+    <circle cx="456" cy="456" r="8" fill="#ffd700" />
+
+    <!-- Crown Arch & Star -->
+    <path d="M 156 120 Q 256 90 356 120" fill="none" stroke="url(#goldBorderMask)" stroke-width="6" stroke-linecap="round" />
+    <polygon points="256,92 263,107 280,107 266,117 271,132 256,123 241,132 246,117 232,107 249,107" fill="#ffd700" />
+
+    <!-- Center Reel Frame -->
+    <rect x="96" y="150" width="320" height="240" rx="24" fill="#0c0717" stroke="url(#goldBorderMask)" stroke-width="5" />
+    <rect x="104" y="158" width="304" height="224" rx="18" fill="#000000" opacity="0.8" />
+    <line x1="202" y1="158" x2="202" y2="382" stroke="#d4af37" stroke-width="2" opacity="0.5" />
+    <line x1="310" y1="158" x2="310" y2="382" stroke="#d4af37" stroke-width="2" opacity="0.5" />
+
+    <!-- Lucky 7 -->
+    <g transform="translate(196, 172) scale(1.15)">
+      <path d="M 8 10 L 92 10 L 46 160 L 22 160 L 64 36 L 8 36 Z" fill="url(#sevenGradientMask)" stroke="url(#goldPlateMask)" stroke-width="4" stroke-linejoin="round" />
+      <path d="M 18 16 L 82 16 L 48 140 L 32 140 L 60 30 L 18 30 Z" fill="#ffffff" opacity="0.25" />
+    </g>
+
+    <!-- Mini 7s -->
+    <g transform="translate(112, 190) scale(0.75)" opacity="0.85">
+      <path d="M 8 10 L 92 10 L 46 160 L 22 160 L 64 36 L 8 36 Z" fill="url(#sevenGradientMask)" stroke="url(#goldPlateMask)" stroke-width="4" stroke-linejoin="round" />
+    </g>
+    <g transform="translate(320, 190) scale(0.75)" opacity="0.85">
+      <path d="M 8 10 L 92 10 L 46 160 L 22 160 L 64 36 L 8 36 Z" fill="url(#sevenGradientMask)" stroke="url(#goldPlateMask)" stroke-width="4" stroke-linejoin="round" />
+    </g>
+
+    <!-- Bottom Gold Plaque: "VEGAS" -->
+    <rect x="136" y="408" width="240" height="42" rx="10" fill="url(#goldPlateMask)" stroke="#fff" stroke-width="1.5" />
+    <text x="256" y="436" font-family="'Space Grotesk', 'Arial Black', sans-serif" font-size="22" font-weight="900" fill="#1b1202" text-anchor="middle" letter-spacing="4">VEGAS 777</text>
+  </g>
+</svg>

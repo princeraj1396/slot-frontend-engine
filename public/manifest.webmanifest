@@ -1,0 +1,25 @@
+{
+  "id": "/",
+  "name": "Royal Fortune 777 by JILLU",
+  "short_name": "Royal Fortune",
+  "description": "A professional, high-end mobile-first 3x3 slot game titled Royal Fortune 777, featuring progressive jackpot, 5 paylines, textured wood and gold console deck, and responsive controls. Powered by JILLU.",
+  "theme_color": "#0a0614",
+  "background_color": "#0a0614",
+  "display": "standalone",
+  "orientation": "any",
+  "start_url": "/",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/JILLU-ICON.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": [
+    "games",
+    "casino",
+    "entertainment"
+  ]
+}

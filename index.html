@@ -2,13 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/style.css">
-    <title>Slot Frontend Engine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a0614" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Slot Engine" />
+    
+    <!-- PWA Web Manifest & Icons -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" type="image/png" href="/JILLU-ICON.png" />
+    <link rel="alternate icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/JILLU-ICON.png" />
+    <!-- Google Fonts for Royal Vegas 777 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:wght@700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css" />
+
+    <title>Royal Fortune 777 by JILLU</title>
+    <meta name="description" content="A professional, high-end mobile-first 3x3 slot game titled Royal Fortune 777, featuring progressive jackpot, 5 paylines, textured wood and gold console deck, and responsive controls. Powered by JILLU." />
+    <meta property="og:title" content="Royal Fortune 777 by JILLU" />
+    <meta property="og:description" content="A professional, high-end mobile-first 3x3 slot game titled Royal Fortune 777, featuring progressive jackpot, 5 paylines, textured wood and gold console deck, and responsive controls. Powered by JILLU." />
 </head>
 <body>
     <div id="app">
+        <!-- Game Header -->
+        <header id="mobile-top-bar" class="mobile-top-bar" aria-label="Game Header">
+            <div class="hud-left">
+                <button class="hud-btn" id="hud-back-btn" aria-label="Back" onclick="window.history.back()">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    Back
+                </button>
+            </div>
+        </header>
+
+        <!-- Phaser 3 Canvas Container -->
         <div id="game-container"></div>
     </div>
     <script type="module" src="/src/main.ts"></script>

@@ -12,15 +12,15 @@ export const symbolConfig = {
   seven: '/assets/symbols/7.png',
 };
 
-export const backgroundImage = '/assets/bg.jpg';
-
+export const backgroundImage = '/assets/bg_portrait.jpg';
 export const confetti = '/assets/confetti.png';
+export const coinImage = '/assets/coin.png';
 
 /**
  * Font configuration
  */
 export const fontConfig = {
-  family: 'Space Grotesk',
-  weights: ['400', '700'],
+  family: 'Cinzel',
+  weights: ['700', '900'],
   source: 'google',
 };

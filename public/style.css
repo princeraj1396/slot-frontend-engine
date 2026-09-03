@@ -1,27 +1,317 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #000000;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+html, body {
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #0a0614;
+  color: #ffffff;
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  touch-action: manipulation;
+  overscroll-behavior: none;
 }
 
 #app {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0a0614;
 }
 
 #game-container {
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#game-container canvas {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ========================================================
+   COMPACT MOBILE & PWA CONTROLS HUD (TOP FLOATING BAR)
+   ======================================================== */
+.mobile-top-bar {
+  position: absolute;
+  top: env(safe-area-inset-top, 14px);
+  left: env(safe-area-inset-left, 16px);
+  right: env(safe-area-inset-right, 16px);
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+  gap: 12px;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+.hud-left, .hud-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+/* 777 Casino Chip Badge (Top Left) */
+.hud-chip-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #2a1645, #0f071f 70%, #000000);
+  border: 2px solid #ffd700;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7), inset 0 0 6px rgba(255, 215, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hud-chip-badge:hover {
+  transform: scale(1.06);
+  box-shadow: 0 6px 18px rgba(255, 215, 0, 0.35);
+}
+
+.chip-inner {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 215, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chip-text {
+  font-family: 'Cinzel', 'Playfair Display', serif;
+  font-size: 13px;
+  font-weight: 900;
+  color: #ffd700;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+.hud-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Space Grotesk', -apple-system, sans-serif;
+  cursor: pointer;
+  border: 1.5px solid rgba(255, 215, 0, 0.35);
+  background: rgba(18, 12, 34, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: #ffffff;
+  transition: all 0.18s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+}
+
+.hud-btn:hover {
+  background: rgba(36, 22, 64, 0.95);
+  border-color: rgba(255, 215, 0, 0.8);
+  transform: translateY(-1px);
+}
+
+.hud-btn:active {
+  transform: scale(0.96);
+}
+
+/* Install PWA Button - Gold Metallic Pill in image_0.png */
+.hud-btn-install {
+  background: linear-gradient(180deg, #f7d668 0%, #d4a024 45%, #946907 100%);
+  border: 1.5px solid #ffe994;
+  color: #1a1005;
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(212, 160, 36, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.7);
+  animation: pulseInstall 2.8s infinite ease-in-out;
+}
+
+.hud-btn-install:hover {
+  background: linear-gradient(180deg, #ffdf7a 0%, #e5b02e 45%, #a67709 100%);
+  border-color: #ffffff;
+  color: #000000;
+}
+
+.hud-btn-fullscreen {
+  background: rgba(14, 10, 26, 0.88);
+  border: 1.5px solid rgba(255, 215, 0, 0.45);
+  color: #f3f4f6;
+}
+
+@keyframes pulseInstall {
+  0%, 100% {
+    box-shadow: 0 4px 14px rgba(212, 160, 36, 0.35);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(255, 215, 0, 0.7);
+  }
+}
+
+/* ========================================================
+   iOS Safari A2HS Instruction Modal
+   ======================================================== */
+#pwa-ios-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.ios-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.ios-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  background: #181428;
+  border: 1.5px solid rgba(255, 215, 0, 0.5);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9);
+  color: #ffffff;
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.ios-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.ios-modal-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffd700;
+}
+
+.ios-modal-close {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.ios-modal-subtitle {
+  font-size: 13px;
+  color: #d1d5db;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.ios-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.ios-step-num {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #282142;
+  border: 1px solid #ffd700;
+  color: #ffd700;
+  font-weight: 700;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ios-step-text {
+  font-size: 13px;
+  line-height: 1.45;
+  color: #e5e7eb;
+}
+
+.ios-got-it-btn {
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ffd700, #f59e0b);
+  color: #1a1005;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* ========================================================
+   RESPONSIVE COMPACT MEDIA QUERIES
+   ======================================================== */
+@media (max-width: 640px) {
+  .hud-brand-title {
+    display: none;
+  }
+  .hud-btn {
+    height: 32px;
+    padding: 0 10px;
+    font-size: 12px;
+  }
+}
+
+@media (max-height: 480px) {
+  .mobile-top-bar {
+    top: 4px;
+  }
+  .hud-btn {
+    height: 28px;
+    padding: 0 8px;
+    font-size: 11px;
+  }
 }

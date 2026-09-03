@@ -19,7 +19,8 @@
     "declarationMap": true,
     "sourceMap": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "types": ["vite/client", "vite-plugin-pwa/client"]
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]
